@@ -1,0 +1,669 @@
+[15/09/2026 7:02 pm] 𝒕𝒂𝒏𝒕𝒆 𝑷𝒂𝒓𝒊𝒔𝒂: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KAHRAN — Official Website</title>
+<meta name="description" content="Official website of KAHRAN — Artist, Singer & Composer. ZIYADI — New Album Coming Soon.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:white;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    padding:0 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    z-index:1000;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:200;
+    letter-spacing:8px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:32px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:300;
+    opacity:.75;
+    transition:.3s;
+}
+
+nav a:hover{
+    opacity:1;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 70px;
+    position:relative;
+
+    background:
+    radial-gradient(circle at 50% 35%,#292929 0%,#101010 30%,#050505 60%,#000 100%);
+}
+
+.hero-content{
+    width:100%;
+    max-width:1300px;
+}
+
+.artist-type{
+    font-size:12px;
+    letter-spacing:8px;
+    color:#888;
+    margin-bottom:45px;
+}
+
+
+/* KAHRAN LOGOTYPE STYLE */
+
+.kahran{
+    font-size:clamp(65px,15vw,190px);
+    font-weight:100;
+    letter-spacing:.10em;
+    line-height:.9;
+    transform:scaleX(1.08);
+}
+
+
+/* RED LINE */
+
+.red-line{
+    width:70px;
+    height:1px;
+    background:#e22929;
+    margin:40px auto;
+}
+
+
+/* ALBUM */
+
+.coming{
+    color:#e22929;
+    font-size:15px;
+    font-weight:300;
+    letter-spacing:7px;
+    margin-bottom:15px;
+}
+
+.new-album{
+    color:#aaa;
+    font-size:12px;
+    letter-spacing:5px;
+    margin-bottom:15px;
+}
+
+.ziyadi{
+    font-size:clamp(55px,10vw,125px);
+    font-weight:100;
+    letter-spacing:.18em;
+    margin-top:15px;
+    transform:scaleX(.88);
+}
+
+
+/* BUTTONS */
+
+.hero-buttons{
+    margin-top:55px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.btn{
+    padding:15px 28px;
+    border:1px solid #555;
+    color:white;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:4px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:white;
+    color:black;
+    border-color:white;
+}
+
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:130px 8%;
+}
+
+.section-number{
+    color:#e22929;
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:clamp(42px,7vw,85px);
+    font-weight:200;
+    letter-spacing:7px;
+    margin-bottom:60px;
+}
+
+
+/* ================= MUSIC ================= */
+
+.music{
+    background:#090909;
+}
+
+.album-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:500px;
+    border-top:1px solid #262626;
+    border-bottom:1px solid #262626;
+}
+
+.album-art{
+    background:
+    radial-gradient(circle,#282828,#090909 70%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:450px;
+}
+
+.album-art-text{
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+    font-size:75px;
+    font-weight:100;
+    letter-spacing:15px;
+}
+
+.album-info{
+    padding:70px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.album-info small{
+    color:#e22929;
+    letter-spacing:5px;
+}
+
+.album-info h2{
+    font-size:clamp(55px,8vw,110px);
+    font-weight:100;
+    letter-spacing:12px;
+    margin:15px 0;
+}
+
+.album-info p{
+    color:#777;
+    font-size:12px;
+    letter-spacing:4px;
+    margin-bottom:35px;
+}
+[15/09/2026 7:02 pm] 𝒕𝒂𝒏𝒕𝒆 𝑷𝒂𝒓𝒊𝒔𝒂: /* ================= STREAM ================= */
+
+.stream{
+    background:#050505;
+}
+
+.platforms{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid #252525;
+}
+
+.platform{
+    min-height:160px;
+    border-right:1px solid #252525;
+    border-bottom:1px solid #252525;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    font-weight:300;
+    letter-spacing:5px;
+    transition:.3s;
+}
+
+.platform:hover{
+    background:#fff;
+    color:#000;
+}
+
+
+/* ================= VIDEO ================= */
+
+.video{
+    background:#0a0a0a;
+}
+
+.video-box{
+    width:100%;
+    aspect-ratio:16/9;
+    border:1px solid #222;
+    background:
+    linear-gradient(135deg,#171717,#050505);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.video-box span{
+    font-size:13px;
+    letter-spacing:7px;
+    color:#777;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:#050505;
+}
+
+.about-content{
+    max-width:1000px;
+}
+
+.about-content p{
+    font-size:clamp(23px,3.5vw,43px);
+    font-weight:200;
+    line-height:1.55;
+    color:#ccc;
+}
+
+.about-content strong{
+    color:white;
+    font-weight:300;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact{
+    min-height:75vh;
+    background:#090909;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.contact-small{
+    color:#e22929;
+    font-size:10px;
+    letter-spacing:6px;
+}
+
+.contact h2{
+    font-size:clamp(60px,11vw,150px);
+    font-weight:100;
+    letter-spacing:10px;
+    margin:20px 0;
+}
+
+.contact p{
+    color:#777;
+    font-size:11px;
+    letter-spacing:5px;
+    margin-bottom:40px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px;
+    border-top:1px solid #202020;
+    text-align:center;
+    color:#555;
+    font-size:9px;
+    letter-spacing:4px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    nav ul{
+        gap:14px;
+    }
+
+    nav ul li:nth-child(2),
+    nav ul li:nth-child(3){
+        display:none;
+    }
+
+    .logo{
+        font-size:19px;
+        letter-spacing:5px;
+    }
+
+    .kahran{
+        letter-spacing:.04em;
+    }
+
+    .album-card{
+        grid-template-columns:1fr;
+    }
+
+    .album-info{
+        padding:50px 25px;
+    }
+
+    .platforms{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:95px 7%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="logo">KAHRAN</div>
+
+<ul>
+<li><a href="#music">MUSIC</a></li>
+<li><a href="#videos">VIDEOS</a></li>
+<li><a href="#about">ABOUT</a></li>
+<li><a href="#contact">CONTACT</a></li>
+</ul>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="hero-content">
+
+<div class="artist-type">
+ARTIST · SINGER · COMPOSER
+</div>
+
+<div class="kahran">
+KAHRAN
+</div>
+
+<div class="red-line"></div>
+
+<div class="coming">
+COMING SOON
+</div>
+
+<div class="new-album">
+NEW ALBUM
+</div>
+
+<div class="ziyadi">
+ZIYADI
+</div>
+
+<div class="hero-buttons">
+
+<a href="#music" class="btn">
+LISTEN
+</a>
+
+<a href="#videos" class="btn">
+WATCH
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- MUSIC -->
+
+<section class="music" id="music">
+
+<div class="section-number">
+01 / MUSIC
+</div>
+
+<div class="section-title">
+NEW ALBUM
+</div>
+
+
+<div class="album-card">
+
+<div class="album-art">
+
+<div class="album-art-text">
+ZIYADI
+</div>
+
+</div>
+
+
+<div class="album-info">
+
+<small>
+COMING SOON
+</small>
+
+<h2>
+ZIYADI
+</h2>
+
+<p>
+THE NEW ALBUM BY KAHRAN
+</p>
+
+<a href="#" class="btn">
+LISTEN SOON
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- STREAM -->
+
+<section class="stream">
+
+<div class="section-number">
+02 / LISTEN
+</div>
+
+<div class="section-title">
+STREAM
+</div>
+
+<div class="platforms">
+
+<a class="platform" href="#" target="_blank">
+SPOTIFY
+</a>
+
+<a class="platform" href="#" target="_blank">
+YOUTUBE
+</a>
+
+<a class="platform" href="#" target="_blank">
+APPLE MUSIC
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- VIDEOS -->
+[15/09/2026 7:02 pm] 𝒕𝒂𝒏𝒕𝒆 𝑷𝒂𝒓𝒊𝒔𝒂: <section class="video" id="videos">
+
+<div class="section-number">
+03 / VISUAL
+</div>
+
+<div class="section-title">
+VIDEOS
+</div>
+
+<div class="video-box">
+
+<span>
+OFFICIAL VIDEO · COMING SOON
+</span>
+
+</div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="section-number">
+04 / ARTIST
+</div>
+
+<div class="section-title">
+ABOUT
+</div>
+
+<div class="about-content">
+
+<p>
+
+<strong>KAHRAN</strong> is an artist,
+singer and composer whose creative world
+moves between music, visual expression
+and storytelling.
+
+<br><br>
+
+After years of artistic creation,
+a new chapter begins.
+
+<br><br>
+
+<strong>ZIYADI.</strong>
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="contact-small">
+BOOKING · MANAGEMENT · COLLABORATION
+</div>
+
+<h2>
+KAHRAN
+</h2>
+
+<p>
+OFFICIAL INQUIRIES
+</p>
+
+<a href="#" class="btn">
+CONTACT
+</a>
+
+</section>
+
+
+
+<footer>
+
+© 2026 KAHRAN · OFFICIAL WEBSITE · ALL RIGHTS RESERVED
+
+</footer>
+
+
+</body>
+</html>
