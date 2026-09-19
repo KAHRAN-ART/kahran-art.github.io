@@ -755,6 +755,16 @@ border:1px solid #444;
         display:block;
         line-height:2;
       }
+  .out-now{
+  grid-column:1 / -1;
+  width:100%;
+  padding:30px 20px;
+  text-align:center;
+  font-size:clamp(24px,4vw,52px);
+  font-weight:800;
+  letter-spacing:.06em;
+  color:var(--white);
+}
     }
 
   </style>
@@ -1095,61 +1105,97 @@ border:1px solid #444;
 
 <script>
 
-  /* ================================
-     RELEASE COUNTDOWN
-     25 SEPTEMBER 2026 — 22:00 IRAN
-  ================================= */
+ /* ==========================================
+   YECHI BEGOO — OFFICIAL RELEASE COUNTDOWN
+   25 SEPTEMBER 2026
+   22:00 IRAN
+   ========================================== */
 
-  const releaseDate =
-    new Date("2026-09-25T22:00:00+03:30").getTime();
+/*
+   Iran Standard Time = UTC +03:30
+   25 Sep 2026 — 22:00 Iran
+   = 25 Sep 2026 — 18:30 UTC
 
-  function updateCountdown(){
+   Using UTC directly prevents the visitor's
+   local timezone from changing the countdown.
+*/
 
-    const now = Date.now();
-    let distance = releaseDate - now;
+const releaseDate = Date.UTC(
+  2026,  // year
+  8,     // September (January = 0)
+  25,    // day
+  18,    // UTC hour
+  30,    // minutes
+  0      // seconds
+);
 
-    if(distance <= 0){
-      distance = 0;
+function updateCountdown() {
+
+  const now = Date.now();
+  const distance = releaseDate - now;
+
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+
+  /* RELEASED */
+  if (distance <= 0) {
+
+    daysEl.textContent = "00";
+    hoursEl.textContent = "00";
+    minutesEl.textContent = "00";
+    secondsEl.textContent = "00";
+
+    const countdown = document.querySelector(".countdown");
+
+    if (countdown) {
+      countdown.innerHTML = `
+        <div class="out-now">
+          YECHI BEGOO — OUT NOW
+        </div>
+      `;
     }
 
-    const days =
-      Math.floor(distance / (1000 * 60 * 60 * 24));
-
-    const hours =
-      Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-      );
-
-    const minutes =
-      Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-      );
-
-    const seconds =
-      Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-      );
-
-    document.getElementById("days").textContent =
-      String(days).padStart(2,"0");
-
-    document.getElementById("hours").textContent =
-      String(hours).padStart(2,"0");
-
-    document.getElementById("minutes").textContent =
-      String(minutes).padStart(2,"0");
-
-    document.getElementById("seconds").textContent =
-      String(seconds).padStart(2,"0");
+    return;
   }
 
-  updateCountdown();
-  setInterval(updateCountdown,1000);
+  /* BEFORE RELEASE */
 
+  const days = Math.floor(
+    distance / (1000 * 60 * 60 * 24)
+  );
 
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) /
+    (1000 * 60 * 60)
+  );
+
+  const minutes = Math.floor(
+    (distance % (1000 * 60 * 60)) /
+    (1000 * 60)
+  );
+
+  const seconds = Math.floor(
+    (distance % (1000 * 60)) / 1000
+  );
+
+  daysEl.textContent =
+    String(days).padStart(2, "0");
+
+  hoursEl.textContent =
+    String(hours).padStart(2, "0");
+
+  minutesEl.textContent =
+    String(minutes).padStart(2, "0");
+
+  secondsEl.textContent =
+    String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
   /* ================================
      TRACK SYSTEM
   ================================= */
