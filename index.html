@@ -1,1295 +1,1550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>KAHRAN — Official Website</title>
-
-<style>
-
-/* ================================
-   GLOBAL
-================================ */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#050505;
-    color:#f5f5f2;
-    font-family:Arial, Helvetica, sans-serif;
-    overflow-x:hidden;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-img{
-    display:block;
-    max-width:100%;
-}
-
-
-/* ================================
-   NAVIGATION
-================================ */
-
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:72px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 5vw;
-
-    background:rgba(5,5,5,.78);
-    backdrop-filter:blur(18px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    z-index:999;
-}
-
-.logo{
-    font-size:13px;
-    letter-spacing:7px;
-    font-weight:700;
-}
-
-.menu{
-    display:flex;
-    gap:30px;
-}
-
-.menu a{
-    font-size:9px;
-    letter-spacing:3px;
-    opacity:.65;
-    transition:.3s;
-}
-
-.menu a:hover{
-    opacity:1;
-}
-
-
-/* ================================
-   HERO
-================================ */
-
-.hero{
-    min-height:100vh;
-    padding-top:72px;
-
-    display:grid;
-    grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);
-
-    background:
-      radial-gradient(circle at 78% 45%,rgba(255,255,255,.07),transparent 32%),
-      #050505;
-}
-
-.hero-image{
-    min-height:calc(100vh - 72px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#080808;
-    overflow:hidden;
-}
-
-.hero-image img{
-    width:100%;
-    height:calc(100vh - 72px);
-
-    object-fit:contain;
-    object-position:center;
-
-    background:#080808;
-}
-
-.hero-content{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-
-    padding:7vw;
-}
-
-.eyebrow{
-    font-size:9px;
-    letter-spacing:6px;
-    opacity:.5;
-    margin-bottom:24px;
-}
-
-.hero h1{
-    font-size:clamp(64px,8vw,145px);
-    line-height:.82;
-    letter-spacing:-5px;
-    font-weight:500;
-}
-
-.hero-sub{
-    margin-top:28px;
-
-    font-size:10px;
-    letter-spacing:5px;
-    opacity:.65;
-}
-
-.scroll{
-    margin-top:55px;
-
-    font-size:8px;
-    letter-spacing:5px;
-    opacity:.35;
-}
-
-
-/* ================================
-   SECTION
-================================ */
-
-.section{
-    padding:110px 7vw;
-    border-top:1px solid rgba(255,255,255,.08);
-}
-
-.section-number{
-    font-size:8px;
-    letter-spacing:5px;
-    opacity:.35;
-    margin-bottom:22px;
-}
-
-.section-label{
-    font-size:9px;
-    letter-spacing:6px;
-    opacity:.55;
-    margin-bottom:18px;
-}
-
-
-/* ================================
-   ALBUM — ZIYADI
-================================ */
-
-.album{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:7vw;
-    align-items:center;
-
-    background:
-      radial-gradient(circle at 20% 50%,rgba(255,255,255,.055),transparent 32%),
-      #050505;
-}
-
-.album-art{
-    position:relative;
-}
-
-.album-art img{
-    width:100%;
-    max-height:760px;
-
-    object-fit:contain;
-
-    border:1px solid rgba(255,255,255,.12);
-}
-
-.album-art::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    pointer-events:none;
-
-    box-shadow:
-      inset 0 0 80px rgba(0,0,0,.18),
-      0 35px 90px rgba(0,0,0,.45);
-}
-
-.album-copy h2{
-    font-size:clamp(70px,9vw,150px);
-    line-height:.85;
-    letter-spacing:-6px;
-    font-weight:400;
-}
-
-.album-status{
-    margin-top:28px;
-
-    font-size:10px;
-    letter-spacing:5px;
-    opacity:.55;
-}
-
-.album-description{
-    margin-top:35px;
-
-    max-width:520px;
-
-    font-size:14px;
-    line-height:2;
-    color:#aaa;
-}
-
-.track-count{
-    margin-top:45px;
-
-    display:flex;
-    align-items:center;
-    gap:18px;
-
-    font-size:10px;
-    letter-spacing:4px;
-}
-
-.track-count span{
-    width:48px;
-    height:1px;
-    background:#777;
-}
-
-
-/* ================================
-   FIRST SINGLE
-================================ */
-
-.release{
-background:#080808;
-}
-
-.release-grid{
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:7vw;
-    align-items:center;
-}
-
-.release-poster img{
-    width:100%;
-    max-height:760px;
-    object-fit:contain;
-}
-
-.release-copy h2{
-    font-size:clamp(55px,7vw,115px);
-    line-height:.88;
-    font-weight:400;
-    letter-spacing:-4px;
-}
-
-.release-date{
-    margin-top:25px;
-
-    font-size:20px;
-    letter-spacing:8px;
-}
-
-.first-track{
-    margin-top:18px;
-
-    font-size:9px;
-    letter-spacing:4px;
-    opacity:.55;
-}
-
-.release-info{
-    margin-top:35px;
-
-    font-size:13px;
-    line-height:2;
-    color:#999;
-}
-
-
-/* ================================
-   COUNTDOWN
-================================ */
-
-.countdown-wrap{
-    margin-top:50px;
-    padding-top:35px;
-
-    border-top:1px solid rgba(255,255,255,.15);
-}
-
-.countdown-title{
-    font-size:8px;
-    letter-spacing:5px;
-    opacity:.45;
-    margin-bottom:25px;
-}
-
-.countdown{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:8px;
-}
-
-.time{
-    border:1px solid rgba(255,255,255,.14);
-    padding:25px 10px;
-    text-align:center;
-}
-
-.time strong{
-    display:block;
-
-    font-size:clamp(28px,4vw,55px);
-    font-weight:300;
-    letter-spacing:-2px;
-}
-
-.time small{
-    display:block;
-
-    margin-top:10px;
-
-    font-size:7px;
-    letter-spacing:3px;
-    opacity:.4;
-}
-
-.release-times{
-    margin-top:22px;
-
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px 30px;
-
-    font-size:8px;
-    letter-spacing:3px;
-    opacity:.6;
-}
-
-#releasedMessage{
-    display:none;
-
-    font-size:16px;
-    letter-spacing:6px;
-
-    margin-top:25px;
-}
-
-
-/* ================================
-   LISTEN
-================================ */
-
-.listen{
-    text-align:center;
-
-    background:
-      radial-gradient(circle at center,rgba(255,255,255,.06),transparent 35%),
-      #050505;
-}
-
-.listen h2{
-    font-size:clamp(55px,9vw,130px);
-    font-weight:300;
-    letter-spacing:-5px;
-}
-
-.listen-sub{
-    margin-top:18px;
-
-    font-size:9px;
-    letter-spacing:5px;
-    opacity:.45;
-}
-
-.platforms{
-    max-width:1050px;
-    margin:55px auto 0;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-
-    border-top:1px solid #222;
-    border-left:1px solid #222;
-}
-
-.platform{
-    min-height:105px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    border-right:1px solid #222;
-    border-bottom:1px solid #222;
-
-    font-size:10px;
-    letter-spacing:3px;
-
-    transition:.3s;
-}
-
-.platform:hover{
-    background:#f4f4ef;
-    color:#050505;
-}
-
-
-/* ================================
-   VIDEOS
-================================ */
-
-.videos{
-    background:#080808;
-}
-
-.videos-title{
-    font-size:clamp(55px,8vw,120px);
-    font-weight:300;
-    letter-spacing:-5px;
-}
-
-.video-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-
-    margin-top:50px;
-}
-
-.video-card{
-    position:relative;
-
-    background:#000;
-
-    border:1px solid rgba(255,255,255,.13);
-
-    min-height:320px;
-}
-
-.video-card video{
-    width:100%;
-    height:100%;
-    min-height:320px;
-
-    object-fit:contain;
-
-    background:#000;
-}
-
-.video-coming{
-    min-height:320px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-
-    text-align:center;
-}
-
-.video-coming strong{
-    font-size:17px;
-    letter-spacing:5px;
-    font-weight:400;
-}
-
-.video-coming span{
-    margin-top:12px;
-
-    font-size:8px;
-    letter-spacing:4px;
-    opacity:.4;
-}
-
-
-/* ================================
-   ABOUT
-================================ */
-
-.about{
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:7vw;
-    align-items:center;
-}
-
-.about-image img{
-    width:100%;
-    max-height:650px;
-    object-fit:contain;
-}
-
-.about-copy h2{
-    font-size:clamp(55px,8vw,120px);
-    font-weight:300;
-    letter-spacing:-5px;
-}
-
-.about-copy p{
-    margin-top:35px;
-
-    max-width:620px;
-
-    color:#aaa;
-
-    font-size:14px;
-    line-height:2.1;
-}
-
-
-/* ================================
-   CONTACT
-================================ */
-
-.contact{
-    min-height:65vh;
-display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    background:
-      radial-gradient(circle at center,rgba(255,255,255,.07),transparent 32%),
-      #050505;
-}
-
-.contact-small{
-    font-size:8px;
-    letter-spacing:5px;
-    opacity:.45;
-}
-
-.contact h2{
-    margin-top:25px;
-
-    font-size:clamp(75px,12vw,180px);
-    font-weight:300;
-    letter-spacing:-7px;
-}
-
-.contact p{
-    margin-top:12px;
-
-    font-size:9px;
-    letter-spacing:5px;
-    opacity:.5;
-}
-
-.btn{
-    display:inline-block;
-
-    margin-top:35px;
-
-    padding:17px 35px;
-
-    border:1px solid #555;
-
-    font-size:9px;
-    letter-spacing:4px;
-
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#f5f5f2;
-    color:#050505;
-}
-
-
-/* ================================
-   FOOTER
-================================ */
-
-footer{
-    min-height:80px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 5vw;
-
-    border-top:1px solid #191919;
-
-    font-size:7px;
-    letter-spacing:3px;
-
-    color:#666;
-}
-
-
-/* ================================
-   MOBILE
-================================ */
-
-@media(max-width:900px){
-
-    nav{
-        height:62px;
-        padding:0 22px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KAHRAN — Artist, Singer, Songwriter & Composer. Official website." />
+  <title>KAHRAN — Official Website</title>
+
+  <style>
+    :root{
+      --black:#050505;
+      --black2:#0a0a0a;
+      --panel:#0e0e0e;
+      --line:#242424;
+      --white:#f3f0e9;
+      --soft:#c9c5bd;
+      --muted:#858585;
+      --red:#d02a2a;
+      --max:1240px;
     }
 
-    .menu{
-        gap:13px;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    .menu a{
-        font-size:7px;
-        letter-spacing:1px;
+    html{
+      scroll-behavior:smooth;
+      background:var(--black);
     }
+
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:Arial, Helvetica, sans-serif;
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+
+    body.rtl{
+      direction:rtl;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      font:inherit;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    .wrap{
+      width:min(var(--max), calc(100% - 48px));
+      margin:auto;
+    }
+
+    .eyebrow{
+      color:var(--soft);
+      font-size:13px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .section-title{
+      font-size:clamp(42px,7vw,92px);
+      line-height:.9;
+      letter-spacing:-.055em;
+      font-weight:800;
+    }
+
+    .red{
+      color:var(--red);
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    /* HEADER */
+
+    header{
+      height:76px;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      z-index:20;
+    }
+
+    .nav{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+
+    .brand{
+      font-weight:800;
+      letter-spacing:.18em;
+      font-size:20px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      color:#d6d3cc;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .nav-links a:hover{
+      color:white;
+    }
+
+    .language{
+      display:flex;
+      gap:7px;
+      align-items:center;
+      font-size:11px;
+      letter-spacing:.08em;
+    }
+
+    .language button{
+      border:0;
+      background:none;
+      color:#777;
+      cursor:pointer;
+      padding:5px 2px;
+    }
+
+    .language button.active,
+    .language button:hover{
+      color:var(--white);
+    }
+
+    /* HERO */
 
     .hero{
-        padding-top:62px;
-        display:block;
-        min-height:auto;
+      min-height:100svh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#000;
+      overflow:hidden;
     }
 
     .hero-image{
-        min-height:auto;
+      position:absolute;
+      inset:76px 0 0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#000;
     }
 
     .hero-image img{
-        height:auto;
-        width:100%;
-        max-height:none;
-        object-fit:contain;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center center;
     }
 
-    .hero-content{
-        padding:55px 24px 65px;
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to bottom,
+          rgba(0,0,0,.12) 10%,
+          rgba(0,0,0,0) 45%,
+          rgba(0,0,0,.48) 100%);
+      pointer-events:none;
     }
 
-    .hero h1{
-        font-size:19vw;
-        letter-spacing:-3px;
+    .hero-copy{
+      width:min(var(--max),calc(100% - 48px));
+      position:relative;
+      z-index:2;
+      min-height:100svh;
+      margin:auto;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      padding-bottom:38px;
+      pointer-events:none;
     }
 
-    .section{
-        padding:75px 24px;
+    .hero-name{
+      font-size:clamp(46px,8vw,116px);
+      font-weight:900;
+      line-height:.82;
+      letter-spacing:-.06em;
     }
 
-    .album,
-    .release-grid,
-    .about{
-        grid-template-columns:1fr;
-        gap:45px;
+    .hero-role{
+      text-align:right;
+      font-size:12px;
+      letter-spacing:.16em;
+      line-height:1.9;
+      text-transform:uppercase;
+      color:#d3d0c9;
     }
 
-    .album-copy h2,
-    .release-copy h2,
-    .about-copy h2{
-        letter-spacing:-3px;
+    /* ALBUM */
+
+    .album{
+      padding:110px 0;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .album-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+gap:80px;
+      align-items:center;
+    }
+
+    .album-photo{
+      background:#090909;
+      min-height:620px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    .album-photo img{
+      width:100%;
+      height:100%;
+      max-height:720px;
+      object-fit:contain;
+    }
+
+    .album-copy h2{
+      font-size:clamp(58px,8vw,108px);
+      line-height:.85;
+      letter-spacing:-.06em;
+    }
+
+    .album-copy .six{
+      font-size:14px;
+      letter-spacing:.22em;
+      color:var(--soft);
+      margin:22px 0 34px;
+    }
+
+    .album-copy p{
+      max-width:530px;
+      color:#aaa;
+      font-size:16px;
+      line-height:1.8;
+      margin-bottom:34px;
+    }
+
+    /* TRACKS */
+
+    .track-list{
+      border-top:1px solid var(--line);
+    }
+
+    .track{
+      width:100%;
+      border:0;
+      border-bottom:1px solid var(--line);
+      background:transparent;
+      color:var(--white);
+      display:grid;
+      grid-template-columns:50px 1fr auto;
+      align-items:center;
+      padding:17px 0;
+      cursor:pointer;
+      text-align:left;
+    }
+
+    .track:hover{
+      background:#0a0a0a;
+    }
+
+    .track-number{
+      color:#666;
+      font-size:12px;
+    }
+
+    .track-name{
+      font-size:14px;
+      letter-spacing:.1em;
+      font-weight:700;
+    }
+
+    .track-status{
+      color:#6f6f6f;
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    /* RELEASE */
+
+    .release{
+      padding:110px 0;
+    }
+
+    .release-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:80px;
+      align-items:center;
+    }
+
+    .release-poster{
+      background:#090909;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .release-poster img{
+      width:100%;
+      max-height:720px;
+      object-fit:contain;
+    }
+
+    .release-copy h2{
+      font-size:clamp(50px,7vw,92px);
+      line-height:.9;
+      letter-spacing:-.055em;
+      margin-bottom:18px;
     }
 
     .release-date{
-        font-size:15px;
-        letter-spacing:5px;
+      color:var(--red);
+      font-size:clamp(23px,3vw,38px);
+      font-weight:800;
+      letter-spacing:-.02em;
+      margin-bottom:7px;
+    }
+
+    .release-time{
+      color:#a7a7a7;
+      font-size:13px;
+      letter-spacing:.14em;
+      margin-bottom:38px;
     }
 
     .countdown{
-        grid-template-columns:repeat(2,1fr);
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      margin-bottom:30px;
+    }
+
+    .count-box{
+      padding:24px 8px;
+      text-align:center;
+      border-right:1px solid var(--line);
+    }
+
+    .count-box:last-child{
+      border-right:0;
+    }
+
+    .count-number{
+      display:block;
+      font-size:clamp(30px,4vw,52px);
+      font-weight:800;
+    }
+
+    .count-label{
+      display:block;
+      margin-top:5px;
+      color:#666;
+      font-size:9px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .listen-title{
+      margin-bottom:14px;
+      font-size:11px;
+      letter-spacing:.18em;
+      color:#8b8b8b;
     }
 
     .platforms{
-        grid-template-columns:repeat(2,1fr);
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
     }
 
-    .video-grid{
-        grid-template-columns:1fr;
+    .platform{
+      border:1px solid #292929;
+      padding:10px 14px;
+      font-size:11px;
+      letter-spacing:.08em;
+      color:#ddd;
+      transition:.2s ease;
     }
 
-    .contact{
-        min-height:55vh;
-        padding:70px 20px;
+    .platform:hover{
+      border-color:#777;
+      background:#111;
     }
+
+    /* VIDEOS */
+
+    .videos{
+      padding:105px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .videos-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      margin-bottom:42px;
+    }
+
+    .videos-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .video-card{
+      background:#090909;
+      border:1px solid #181818;
+      min-height:360px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .video-card video{
+      width:100%;
+      height:100%;
+      min-height:360px;
+      object-fit:contain;
+      background:#050505;
+    }
+
+    .video-coming{
+      min-height:360px;
+      display:flex;
+align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:10px;
+      background:
+        radial-gradient(circle at center,#161616 0,#090909 52%,#050505 100%);
+    }
+
+    .video-coming strong{
+      letter-spacing:.16em;
+      font-size:13px;
+    }
+
+    .video-coming span{
+      color:#555;
+      font-size:10px;
+      letter-spacing:.15em;
+    }
+
+    /* BEYOND MUSIC */
+
+    .beyond{
+      padding:110px 0 125px;
+      border-top:1px solid var(--line);
+    }
+
+    .beyond-intro{
+      max-width:650px;
+      margin-bottom:50px;
+    }
+
+    .beyond-intro p{
+      color:#999;
+      margin-top:22px;
+      font-size:16px;
+      line-height:1.8;
+    }
+
+    .beyond-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .world{
+      min-height:420px;
+      border:1px solid #202020;
+      background:#0b0b0b;
+      position:relative;
+      padding:35px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      overflow:hidden;
+    }
+
+    .world:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 70% 20%,#202020 0,transparent 42%);
+      opacity:.55;
+    }
+
+    .world > *{
+      position:relative;
+      z-index:2;
+    }
+
+    .world small{
+      color:#777;
+      letter-spacing:.18em;
+      font-size:10px;
+    }
+
+    .world h3{
+      font-size:clamp(35px,5vw,68px);
+      line-height:.95;
+      margin-top:8px;
+      letter-spacing:-.04em;
+    }
+
+    /* FOOTER */
 
     footer{
-        padding:25px;
-        flex-direction:column;
-        gap:10px;
+      border-top:1px solid var(--line);
+      padding:65px 0 35px;
     }
-}
 
-</style>
+    .footer-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:30px;
+      padding-bottom:50px;
+    }
+
+    .footer-logo{
+      font-size:clamp(55px,9vw,120px);
+      line-height:.8;
+      font-weight:900;
+      letter-spacing:-.065em;
+    }
+
+    .footer-role{
+      text-align:right;
+      color:#8a8a8a;
+      font-size:11px;
+      letter-spacing:.14em;
+      line-height:1.8;
+      text-transform:uppercase;
+    }
+
+    .footer-bottom{
+      border-top:1px solid #181818;
+      padding-top:24px;
+      display:flex;
+      justify-content:space-between;
+      color:#555;
+      font-size:10px;
+      letter-spacing:.1em;
+    }
+
+    /* TRACK MODAL */
+
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:100;
+      background:rgba(0,0,0,.88);
+      backdrop-filter:blur(14px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .modal.open{
+      display:flex;
+    }
+
+    .modal-box{
+      width:min(900px,100%);
+      max-height:88vh;
+      overflow:auto;
+      background:#0a0a0a;
+      border:1px solid #292929;
+      padding:38px;
+      position:relative;
+    }
+
+    .close{
+      position:absolute;
+      top:18px;
+      right:20px;
+      background:none;
+      border:0;
+      color:#aaa;
+      font-size:26px;
+      cursor:pointer;
+    }
+
+    .modal-number{
+      color:var(--red);
+      font-size:11px;
+      letter-spacing:.2em;
+    }
+
+    .modal h3{
+      font-size:clamp(38px,7vw,72px);
+      margin:8px 0 22px;
+      line-height:.95;
+    }
+
+    .modal-section{
+      border-top:1px solid #222;
+      padding:22px 0;
+    }
+
+    .modal-section h4{
+      font-size:10px;
+      letter-spacing:.18em;
+      color:#777;
+      margin-bottom:12px;
+    }
+
+    .modal-section p{
+      color:#aaa;
+      line-height:1.8;
+    }
+
+    .track-action{
+      display:inline-block;
+      border:1px solid #333;
+      padding:11px 15px;
+      margin:4px 5px 4px 0;
+      color:#ddd;
+      font-size:11px;
+      letter-spacing:.08em;
+    }
+
+    /* LANGUAGE SUGGESTION */
+
+    .language-suggest{
+      position:fixed;
+      left:50%;
+      bottom:22px;
+      transform:translateX(-50%);
+      z-index:200;
+      background:#111;
+      border:1px solid #333;
+      padding:14px 18px;
+      display:none;
+      align-items:center;
+      gap:16px;
+      box-shadow:0 15px 50px #000;
+      font-size:13px;
+    }
+
+    .language-suggest button{
+border:1px solid #444;
+      background:#181818;
+      color:white;
+      padding:8px 12px;
+      cursor:pointer;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:850px){
+
+      .wrap{
+        width:min(100% - 30px,var(--max));
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero-copy{
+        width:calc(100% - 30px);
+        padding-bottom:24px;
+      }
+
+      .hero-name{
+        font-size:52px;
+      }
+
+      .hero-role{
+        font-size:9px;
+        max-width:155px;
+      }
+
+      .album,
+      .release,
+      .videos,
+      .beyond{
+        padding:75px 0;
+      }
+
+      .album-grid,
+      .release-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+      }
+
+      .album-photo{
+        min-height:auto;
+      }
+
+      .album-photo img{
+        max-height:none;
+      }
+
+      .videos-grid,
+      .beyond-grid{
+        grid-template-columns:1fr;
+      }
+
+      .videos-head{
+        display:block;
+      }
+
+      .count-box{
+        padding:18px 4px;
+      }
+
+      .footer-top{
+        display:block;
+      }
+
+      .footer-role{
+        text-align:left;
+        margin-top:25px;
+      }
+
+      .footer-bottom{
+        display:block;
+        line-height:2;
+      }
+    }
+
+  </style>
 </head>
-
 
 <body>
 
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">KAHRAN</a>
+
+    <nav class="nav-links">
+      <a href="#music" data-i18n="navMusic">Music</a>
+      <a href="#videos" data-i18n="navVideos">Videos</a>
+      <a href="#art" data-i18n="navArt">Art</a>
+      <a href="#stories" data-i18n="navStories">Stories</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+    </nav>
+
+    <div class="language">
+      <button onclick="setLanguage('en')" id="lang-en">EN</button>
+      <span>·</span>
+      <button onclick="setLanguage('fa')" id="lang-fa">FA</button>
+      <span>·</span>
+      <button onclick="setLanguage('de')" id="lang-de">DE</button>
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-image">
+      <img src="kahran bak seit" alt="KAHRAN">
+    </div>
+
+    <div class="hero-copy">
+      <div class="hero-name">KAHRAN</div>
+
+      <div class="hero-role">
+        ARTIST<br>
+        SINGER<br>
+        SONGWRITER<br>
+        COMPOSER
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- MUSIC / ALBUM -->
+  <section class="album" id="music">
+    <div class="wrap album-grid">
+
+      <div class="album-photo">
+        <img src="ziyadai.jpg.PNG" alt="KAHRAN — ZIYADI">
+      </div>
+
+      <div class="album-copy">
+
+        <div class="eyebrow" data-i18n="newAlbum">New Album</div>
+
+        <h2>ZIYADI</h2>
+
+        <div class="six" data-i18n="sixTracks">
+          6 TRACKS · WRITTEN & COMPOSED BY KAHRAN
+        </div>
+
+        <p data-i18n="albumText">
+          A six-track music project written, composed and performed by KAHRAN.
+          Every song carries his own words, music and artistic identity.
+        </p>
+
+        <div class="track-list">
+
+          <button class="track" onclick="openTrack(0)">
+            <span class="track-number">01</span>
+            <span class="track-name">YECHI BEGOO</span>
+            <span class="track-status red">FIRST RELEASE</span>
+          </button>
+
+          <button class="track" onclick="openTrack(1)">
+            <span class="track-number">02</span>
+            <span class="track-name">TRACK II</span>
+            <span class="track-status">COMING SOON</span>
+          </button>
+
+          <button class="track" onclick="openTrack(2)">
+            <span class="track-number">03</span>
+            <span class="track-name">TRACK III</span>
+            <span class="track-status">COMING SOON</span>
+          </button>
+
+          <button class="track" onclick="openTrack(3)">
+            <span class="track-number">04</span>
+            <span class="track-name">TRACK IV</span>
+            <span class="track-status">COMING SOON</span>
+          </button>
+
+          <button class="track" onclick="openTrack(4)">
+            <span class="track-number">05</span>
+            <span class="track-name">TRACK V</span>
+[19/09/2026 4:49 am] Prans: <span class="track-status">COMING SOON</span>
+          </button>
+
+          <button class="track" onclick="openTrack(5)">
+            <span class="track-number">06</span>
+            <span class="track-name">TRACK VI</span>
+            <span class="track-status">COMING SOON</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RELEASE -->
+  <section class="release">
+    <div class="wrap release-grid">
+
+      <div class="release-poster">
+        <img src="25 september.jpg" alt="YECHI BEGOO — 25 September">
+      </div>
+
+      <div class="release-copy">
+
+        <div class="eyebrow" data-i18n="firstRelease">
+          First Release
+        </div>
+
+        <h2>YECHI<br>BEGOO</h2>
+
+        <div class="release-date">
+          25 SEPTEMBER 2026
+        </div>
+
+        <div class="release-time">
+          22:00 IRAN · 20:30 EUROPE
+        </div>
+
+        <div class="countdown">
+          <div class="count-box">
+            <span class="count-number" id="days">00</span>
+            <span class="count-label" data-i18n="days">Days</span>
+          </div>
+
+          <div class="count-box">
+            <span class="count-number" id="hours">00</span>
+            <span class="count-label" data-i18n="hours">Hours</span>
+          </div>
+
+          <div class="count-box">
+            <span class="count-number" id="minutes">00</span>
+            <span class="count-label" data-i18n="minutes">Minutes</span>
+          </div>
+
+          <div class="count-box">
+            <span class="count-number" id="seconds">00</span>
+            <span class="count-label" data-i18n="seconds">Seconds</span>
+          </div>
+        </div>
+
+        <div class="listen-title" data-i18n="listenOn">
+          LISTEN ON
+        </div>
+
+        <!-- Add the official artist/song URLs later -->
+        <div class="platforms">
+          <a class="platform" href="#" target="_blank">Spotify</a>
+          <a class="platform" href="#" target="_blank">Apple Music</a>
+          <a class="platform" href="#" target="_blank">YouTube</a>
+          <a class="platform" href="#" target="_blank">YouTube Music</a>
+          <a class="platform" href="#" target="_blank">TIDAL</a>
+          <a class="platform" href="#" target="_blank">Deezer</a>
+          <a class="platform" href="#" target="_blank">Amazon Music</a>
+          <a class="platform" href="#" target="_blank">Napster</a>
+          <a class="platform" href="#" target="_blank">Qobuz</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- VIDEOS -->
+  <section class="videos" id="videos">
+    <div class="wrap">
+
+      <div class="videos-head">
+        <div>
+          <div class="eyebrow" data-i18n="official">Official</div>
+          <h2 class="section-title" data-i18n="videos">VIDEOS</h2>
+        </div>
+      </div>
+
+      <div class="videos-grid">
+
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="video">
+            Your browser does not support the video element.
+          </video>
+        </div>
+
+        <div class="video-card">
+          <div class="video-coming">
+            <strong>TEASER II</strong>
+            <span>COMING SOON</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BEYOND MUSIC -->
+  <section class="beyond" id="about">
+    <div class="wrap">
+
+      <div class="beyond-intro">
+
+        <div class="eyebrow" data-i18n="beyond">
+          Beyond Music
+        </div>
+
+        <h2 class="section-title">
+          KAHRAN<br>ART
+        </h2>
+
+        <p data-i18n="beyondText">
+          Music is the central world of KAHRAN.
+          Beyond sound, his artistic language continues through visual art
+          and story writing.
+        </p>
+
+      </div>
+
+      <div class="beyond-grid">
+
+        <a class="world" id="art" href="#">
+          <small data-i18n="discover">DISCOVER</small>
+          <h3 data-i18n="visualArt">VISUAL<br>ART</h3>
+        </a>
+
+        <a class="world" id="stories" href="#">
+          <small data-i18n="discover">DISCOVER</small>
+<h3 data-i18n="stories">STORIES</h3>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
 
-<!-- =================================
-     NAVIGATION
-================================== -->
-
-<nav>
-
-<div class="logo">
-KAHRAN
-</div>
-
-<div class="menu">
-<a href="#album">ALBUM</a>
-<a href="#release">RELEASE</a>
-<a href="#listen">LISTEN</a>
-<a href="#videos">VIDEOS</a>
-<a href="#about">ABOUT</a>
-</div>
-
-</nav>
-
-
-
-<!-- =================================
-     01 HERO
-================================== -->
-
-<section class="hero">
-
-<div class="hero-image">
-
-<img
-src="Post foto.jpg"
-alt="KAHRAN Official Artist Portrait"
->
-
-</div>
-
-
-<div class="hero-content">
-
-<div class="eyebrow">
-OFFICIAL ARTIST WEBSITE
-</div>
-
-<h1>
-KAHRAN
-</h1>
-
-<div class="hero-sub">
-ARTIST · SINGER · COMPOSER
-</div>
-
-<div class="scroll">
-SCROLL TO ENTER ↓
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =================================
-     02 ALBUM — ZIYADI
-================================== -->
-
-<section class="section album" id="album">
-
-<div class="album-art">
-
-<img
-src="ziyadi.jpg.PNG"
-alt="ZIYADI — New Album by KAHRAN"
->
-
-</div>
-
-
-<div class="album-copy">
-
-<div class="section-number">
-02 / NEW ALBUM
-</div>
-
-<div class="section-label">
-KAHRAN PRESENTS
-</div>
-
-<h2>
-ZIYADI
-</h2>
-
-<div class="album-status">
-NEW ALBUM · COMING SOON
-</div>
-
-<p class="album-description">
-
-A new chapter in the musical world of KAHRAN.
-
-<br><br>
-
-<strong style="color:#fff;">ZIYADI</strong> is a six-track album
-introducing a new body of music, expression and sound.
-
-<br><br>
-
-The journey begins with its first official release:
-<strong style="color:#fff;">YECHI BEGO.</strong>
-
-</p>
-
-<div class="track-count">
-<span></span>
-6 TRACKS
-</div>
-
-</div>
-
-</section>
-<!-- =================================
-     03 FIRST RELEASE
-================================== -->
-
-<section class="section release" id="release">
-
-<div class="release-grid">
-
-
-<div class="release-poster">
-
-<img
-src="25 september.jpg"
-alt="YECHI BEGO — 25 September"
->
-
-</div>
-
-
-<div class="release-copy">
-
-<div class="section-number">
-03 / FIRST RELEASE
-</div>
-
-<div class="section-label">
-FROM THE ALBUM ZIYADI
-</div>
-
-<h2>
-YECHI<br>BEGO
-</h2>
-
-<div class="release-date">
-25 SEPTEMBER
-</div>
-
-<div class="first-track">
-TRACK 01 / 06 · OFFICIAL RELEASE
-</div>
-
-
-<p class="release-info">
-
-The first official track from
-<strong style="color:white;">ZIYADI</strong>.
-
-<br>
-
-Available worldwide on 25 September 2026.
-
-</p>
-
-
-
-<!-- COUNTDOWN -->
-
-<div class="countdown-wrap">
-
-<div class="countdown-title">
-COUNTDOWN TO WORLDWIDE RELEASE
-</div>
-
-<div class="countdown" id="countdown">
-
-<div class="time">
-<strong id="days">00</strong>
-<small>DAYS</small>
-</div>
-
-<div class="time">
-<strong id="hours">00</strong>
-<small>HOURS</small>
-</div>
-
-<div class="time">
-<strong id="minutes">00</strong>
-<small>MINUTES</small>
-</div>
-
-<div class="time">
-<strong id="seconds">00</strong>
-<small>SECONDS</small>
-</div>
-
-</div>
-
-
-<div class="release-times">
-
-<span>EUROPE · 20:30</span>
-
-<span>IRAN · 22:00</span>
-
-<span>25 · 09 · 2026</span>
-
-</div>
-
-
-<div id="releasedMessage">
-OUT NOW
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =================================
-     04 LISTEN
-================================== -->
-
-<section class="section listen" id="listen">
-
-<div class="section-number">
-04 / STREAM · LISTEN · DISCOVER
-</div>
-
-<h2>
-LISTEN
-</h2>
-
-<div class="listen-sub">
-KAHRAN · AVAILABLE WORLDWIDE
-</div>
-
-
-<div class="platforms">
-
-<a class="platform" href="#" target="_blank">
-SPOTIFY
-</a>
-
-<a class="platform" href="#" target="_blank">
-APPLE MUSIC
-</a>
-
-<a class="platform" href="#" target="_blank">
-YOUTUBE
-</a>
-
-<a class="platform" href="#" target="_blank">
-YOUTUBE MUSIC
-</a>
-
-<a class="platform" href="#" target="_blank">
-TIDAL
-</a>
-
-<a class="platform" href="#" target="_blank">
-DEEZER
-</a>
-
-<a class="platform" href="#" target="_blank">
-AMAZON MUSIC
-</a>
-
-<a class="platform" href="#" target="_blank">
-NAPSTER
-</a>
-
-<a class="platform" href="#" target="_blank">
-PANDORA
-</a>
-
-</div>
-
-
-<div style="
-margin-top:30px;
-font-size:8px;
-letter-spacing:4px;
-opacity:.35;
-">
-STREAMING LINKS ACTIVATE UPON RELEASE
-</div>
-
-</section>
-
-
-
-<!-- =================================
-     05 VIDEO / VISUAL
-================================== -->
-
-<section class="section videos" id="videos">
-
-<div class="section-number">
-05 / VISUAL
-</div>
-
-<div class="videos-title">
-VIDEOS
-</div>
-
-
-<div class="video-grid">
-
-
-<!-- TEASER 01 -->
-
-<div class="video-card">
-
-<video
-controls
-playsinline
-preload="metadata"
->
-
-<source src="video">
-
-Your browser does not support video playback.
-
-</video>
-
-</div>
-
-
-
-<!-- TEASER 02 -->
-
-<div class="video-card">
-
-<div class="video-coming">
-
-<strong>
-TEASER II
-</strong>
-
-<span>
-COMING SOON
-</span>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =================================
-     06 ABOUT
-================================== -->
-
-<section class="section about" id="about">
-
-
-<div class="about-image">
-
-<img
-src="kahran bak seit"
-alt="KAHRAN"
->
-
-</div>
-
-
-<div class="about-copy">
-
-<div class="section-number">
-06 / ARTIST
-</div>
-
-<h2>
-KAHRAN
-</h2>
-
-<p>
-
-<strong style="color:white;">KAHRAN</strong>
-is an artist, singer and composer whose creative world
-moves between music, visual expression and storytelling.
-
-<br><br>
-
-After years of artistic creation,
-a new musical chapter begins.
-
-<br><br>
-
-<strong style="color:white; letter-spacing:3px;">
-ZIYADI.
-</strong>
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- =================================
-     07 CONTACT
-================================== -->
-
-<section class="contact" id="contact">
-
-<div class="contact-small">
-BOOKING · MANAGEMENT · COLLABORATION
-</div>
-
-<h2>
-KAHRAN
-</h2>
-
-<p>
-OFFICIAL INQUIRIES
-</p>
-
-<a href="#" class="btn">
-CONTACT
-</a>
-
-</section>
-
-
-
-<!-- =================================
-     FOOTER
-[19/09/2026 3:54 am] Prans: ================================== -->
 
 <footer>
+  <div class="wrap">
 
-<span>
-© 2026 KAHRAN
-</span>
+    <div class="footer-top">
 
-<span>
-OFFICIAL WEBSITE · ALL RIGHTS RESERVED
-</span>
+      <div class="footer-logo">
+        KAHRAN
+      </div>
 
+      <div class="footer-role">
+        ARTIST · SINGER<br>
+        SONGWRITER · COMPOSER
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 KAHRAN. ALL RIGHTS RESERVED.</span>
+      <span>OFFICIAL ARTIST WEBSITE</span>
+    </div>
+
+  </div>
 </footer>
 
 
+<!-- TRACK DETAIL MODAL -->
+<div class="modal" id="trackModal">
 
-<!-- =================================
-     AUTOMATIC COUNTDOWN
-================================== -->
+  <div class="modal-box">
+
+    <button class="close" onclick="closeTrack()">×</button>
+
+    <div class="modal-number" id="modalNumber"></div>
+
+    <h3 id="modalTitle"></h3>
+
+    <div class="modal-section">
+      <h4 data-i18n="trackStatus">STATUS</h4>
+      <p id="modalStatus"></p>
+    </div>
+
+    <div class="modal-section">
+      <h4 data-i18n="trackVideo">VIDEO / TEASER</h4>
+      <p id="modalVideo"></p>
+    </div>
+
+    <div class="modal-section">
+      <h4 data-i18n="lyrics">LYRICS</h4>
+      <p id="modalLyrics"></p>
+    </div>
+
+    <div class="modal-section">
+      <h4 data-i18n="listenDownload">LISTEN / DOWNLOAD</h4>
+      <div id="modalLinks"></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- LANGUAGE SUGGESTION -->
+<div class="language-suggest" id="languageSuggest">
+
+  <span id="languageSuggestText">
+    مشاهده سایت به فارسی؟
+  </span>
+
+  <button onclick="acceptSuggestedLanguage()" id="languageSuggestButton">
+    فارسی
+  </button>
+
+  <button onclick="dismissLanguageSuggestion()">×</button>
+
+</div>
+
 
 <script>
 
-/*
-25 SEPTEMBER 2026
+  /* ================================
+     RELEASE COUNTDOWN
+     25 SEPTEMBER 2026 — 22:00 IRAN
+  ================================= */
 
-Europe: 20:30
-Iran:   22:00
+  const releaseDate =
+    new Date("2026-09-25T22:00:00+03:30").getTime();
 
-September 25, 2026:
-20:30 in Greece corresponds to 17:30 UTC.
-*/
+  function updateCountdown(){
 
-const releaseDate =
-new Date("2026-09-25T17:30:00Z").getTime();
-
-
-function updateCountdown(){
-
-    const now = new Date().getTime();
-
-    const distance = releaseDate - now;
-
+    const now = Date.now();
+    let distance = releaseDate - now;
 
     if(distance <= 0){
+      distance = 0;
+    }
 
-        document.getElementById("countdown").style.display = "none";
+    const days =
+      Math.floor(distance / (1000 * 60 * 60 * 24));
 
-        document.getElementById("releasedMessage").style.display = "block";
+    const hours =
+      Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
 
-        return;
+    const minutes =
+      Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
+
+    const seconds =
+      Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+      );
+
+    document.getElementById("days").textContent =
+      String(days).padStart(2,"0");
+
+    document.getElementById("hours").textContent =
+      String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+      String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+      String(seconds).padStart(2,"0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+
+  /* ================================
+     TRACK SYSTEM
+  ================================= */
+
+  const tracks = [
+
+    {
+      number:"01",
+      title:"YECHI BEGOO",
+      status:"FIRST RELEASE · 25 SEPTEMBER 2026",
+      video:"Official teaser and video will appear here.",
+      lyrics:"Lyrics will be available here.",
+      released:true
+    },
+
+    {
+      number:"02",
+      title:"TRACK II",
+      status:"COMING SOON",
+      video:"Coming soon.",
+      lyrics:"Coming soon.",
+      released:false
+    },
+
+    {
+      number:"03",
+      title:"TRACK III",
+      status:"COMING SOON",
+      video:"Coming soon.",
+      lyrics:"Coming soon.",
+      released:false
+    },
+
+    {
+      number:"04",
+      title:"TRACK IV",
+      status:"COMING SOON",
+      video:"Coming soon.",
+      lyrics:"Coming soon.",
+      released:false
+    },
+
+    {
+      number:"05",
+      title:"TRACK V",
+      status:"COMING SOON",
+      video:"Coming soon.",
+      lyrics:"Coming soon.",
+      released:false
+    },
+
+    {
+      number:"06",
+      title:"TRACK VI",
+      status:"COMING SOON",
+      video:"Coming soon.",
+      lyrics:"Coming soon.",
+      released:false
+    }
+
+  ];
+
+  function openTrack(index){
+
+    const track = tracks[index];
+
+    document.getElementById("modalNumber").textContent =
+      "TRACK " + track.
+number;
+
+    document.getElementById("modalTitle").textContent =
+      track.title;
+
+    document.getElementById("modalStatus").textContent =
+      track.status;
+
+    document.getElementById("modalVideo").textContent =
+      track.video;
+
+    document.getElementById("modalLyrics").textContent =
+      track.lyrics;
+
+    document.getElementById("modalLinks").innerHTML =
+      track.released
+      ?
+      `
+      <a class="track-action" href="#">STREAM</a>
+      <a class="track-action" href="#">DOWNLOAD</a>
+      `
+      :
+      <span class="muted">COMING SOON</span>;
+
+    document.getElementById("trackModal")
+      .classList.add("open");
+
+    document.body.style.overflow="hidden";
+  }
+
+  function closeTrack(){
+
+    document.getElementById("trackModal")
+      .classList.remove("open");
+
+    document.body.style.overflow="";
+  }
+
+  document.getElementById("trackModal")
+    .addEventListener("click",function(event){
+
+      if(event.target === this){
+        closeTrack();
+      }
+
+    });
+
+
+  /* ================================
+     MULTILINGUAL SITE
+  ================================= */
+
+  const translations = {
+
+    en:{
+      navMusic:"Music",
+      navVideos:"Videos",
+      navArt:"Art",
+      navStories:"Stories",
+      navAbout:"About",
+
+      newAlbum:"New Album",
+      sixTracks:"6 TRACKS · WRITTEN & COMPOSED BY KAHRAN",
+
+      albumText:
+      "A six-track music project written, composed and performed by KAHRAN. Every song carries his own words, music and artistic identity.",
+
+      firstRelease:"First Release",
+
+      days:"Days",
+      hours:"Hours",
+      minutes:"Minutes",
+      seconds:"Seconds",
+
+      listenOn:"LISTEN ON",
+
+      official:"Official",
+      videos:"VIDEOS",
+
+      beyond:"Beyond Music",
+
+      beyondText:
+      "Music is the central world of KAHRAN. Beyond sound, his artistic language continues through visual art and story writing.",
+
+      discover:"DISCOVER",
+      visualArt:"VISUAL ART",
+      stories:"STORIES",
+
+      trackStatus:"STATUS",
+      trackVideo:"VIDEO / TEASER",
+      lyrics:"LYRICS",
+      listenDownload:"LISTEN / DOWNLOAD"
+    },
+
+
+    fa:{
+      navMusic:"موسیقی",
+      navVideos:"ویدئوها",
+      navArt:"هنر",
+      navStories:"داستان‌ها",
+      navAbout:"درباره",
+
+      newAlbum:"آلبوم جدید",
+
+      sixTracks:
+      "۶ ترک · ترانه و آهنگسازی از کهران",
+
+      albumText:
+      "زیادی یک پروژه موسیقی شش‌ترکه از کهران است؛ ترانه‌ها، موسیقی و اجرای آثار توسط خود او شکل گرفته و هر قطعه بخشی از جهان موسیقایی اوست.",
+
+      firstRelease:"اولین انتشار",
+
+      days:"روز",
+      hours:"ساعت",
+      minutes:"دقیقه",
+      seconds:"ثانیه",
+
+      listenOn:"شنیدن در",
+
+      official:"رسمی",
+      videos:"ویدئوها",
+
+      beyond:"فراتر از موسیقی",
+
+      beyondText:
+      "موسیقی دنیای اصلی کهران است؛ اما زبان هنری او در هنرهای تجسمی و قصه‌نویسی نیز ادامه پیدا می‌کند.",
+
+      discover:"مشاهده",
+      visualArt:"هنرهای تجسمی",
+      stories:"قصه‌ها",
+
+      trackStatus:"وضعیت",
+      trackVideo:"ویدئو / تیزر",
+      lyrics:"متن ترانه",
+      listenDownload:"پخش / دانلود"
+    },
+
+
+    de:{
+      navMusic:"Musik",
+      navVideos:"Videos",
+      navArt:"Kunst",
+      navStories:"Stories",
+      navAbout:"Über",
+
+      newAlbum:"Neues Album",
+
+      sixTracks:
+      "6 TRACKS · GESCHRIEBEN & KOMPONIERT VON KAHRAN",
+
+      albumText:
+      "Ein Musikprojekt mit sechs Tracks, geschrieben, komponiert und performt von KAHRAN. Jeder Song trägt seine eigenen Worte, seine Musik und seine künstlerische Identität.",
+
+      firstRelease:"Erste Veröffentlichung",
+
+      days:"Tage",
+      hours:"Stunden",
+      minutes:"Minuten",
+      seconds:"Sekunden",
+
+      listenOn:"HÖREN AUF",
+
+      official:"Official",
+      videos:"VIDEOS",
+
+      beyond:"Beyond Music",
+
+      beyondText:
+      "Musik ist die zentrale Welt von KAHRAN. Darüber hinaus setzt sich seine künstlerische Sprache in visueller Kunst und im Schreiben von Geschichten fort.",
+
+      discover:"ENTDECKEN",
+      visualArt:"VISUAL ART",
+      stories:"STORIES",
+
+      trackStatus:"STATUS",
+      trackVideo:"VIDEO / TEASER",
+[19/09/2026 4:49 am] Prans: lyrics:"LYRICS",
+      listenDownload:"HÖREN / DOWNLOAD"
+    }
+
+  };
+
+
+  function setLanguage(language){
+
+    const dictionary = translations[language];
+
+    document.querySelectorAll("[data-i18n]")
+      .forEach(element=>{
+
+        const key =
+          element.getAttribute("data-i18n");
+
+        if(dictionary[key]){
+          element.innerHTML = dictionary[key];
+        }
+
+      });
+
+    document.documentElement.lang = language;
+
+    if(language === "fa"){
+
+      document.body.classList.add("rtl");
+
+    }else{
+
+      document.body.classList.remove("rtl");
 
     }
 
+    document.querySelectorAll(".language button")
+      .forEach(button =>
+        button.classList.remove("active")
+      );
 
-    const days =
-    Math.floor(distance / (1000 * 60 * 60 * 24));
+    const activeButton =
+      document.getElementById("lang-"+language);
 
+    if(activeButton){
+      activeButton.classList.add("active");
+    }
 
-    const hours =
-    Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+    localStorage.setItem(
+      "kahranLanguage",
+      language
     );
 
-
-    const minutes =
-    Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
+    dismissLanguageSuggestion();
+  }
 
 
-    const seconds =
-    Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
+  /* ================================
+     FIRST VISIT LANGUAGE DETECTION
+  ================================= */
+
+  let suggestedLanguage = null;
+
+  function detectLanguage(){
+
+    const savedLanguage =
+      localStorage.getItem("kahranLanguage");
+
+    if(savedLanguage){
+
+      setLanguage(savedLanguage);
+      return;
+    }
+
+    setLanguage("en");
+
+    const browserLanguage =
+      (
+        navigator.language ||
+        navigator.userLanguage ||
+        "en"
+      ).toLowerCase();
+
+    if(browserLanguage.startsWith("fa")){
+
+      suggestedLanguage="fa";
+
+      document.getElementById(
+        "languageSuggestText"
+      ).textContent =
+        "مایلید سایت را به فارسی مشاهده کنید؟";
+
+      document.getElementById(
+        "languageSuggestButton"
+      ).textContent =
+        "فارسی";
+
+      showLanguageSuggestion();
+
+    }
+
+    else if(browserLanguage.startsWith("de")){
+
+      suggestedLanguage="de";
+
+      document.getElementById(
+        "languageSuggestText"
+      ).textContent =
+        "Website auf Deutsch ansehen?";
+
+      document.getElementById(
+        "languageSuggestButton"
+      ).textContent =
+        "Deutsch";
+
+      showLanguageSuggestion();
+
+    }
+
+  }
 
 
-    document.getElementById("days").innerText =
-    String(days).padStart(2,"0");
+  function showLanguageSuggestion(){
+
+    document.getElementById(
+      "languageSuggest"
+    ).style.display="flex";
+
+  }
 
 
-    document.getElementById("hours").innerText =
-    String(hours).padStart(2,"0");
+  function dismissLanguageSuggestion(){
+
+    document.getElementById(
+      "languageSuggest"
+    ).style.display="none";
+
+  }
 
 
-    document.getElementById("minutes").innerText =
-    String(minutes).padStart(2,"0");
+  function acceptSuggestedLanguage(){
+
+    if(suggestedLanguage){
+      setLanguage(suggestedLanguage);
+    }
+
+  }
 
 
-    document.getElementById("seconds").innerText =
-    String(seconds).padStart(2,"0");
-
-}
-
-
-updateCountdown();
-
-setInterval(updateCountdown,1000);
+  detectLanguage();
 
 </script>
-
 
 </body>
 </html>
