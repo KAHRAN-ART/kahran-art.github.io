@@ -996,7 +996,7 @@ min-height:auto;
     <div class="album-image">
 
       <img
-        src="ziyadai.jpg.PNG"
+        src="Post foto.jpg"
         alt="KAHRAN ZIYADI">
 
       <div class="album-watermark">
@@ -1251,7 +1251,7 @@ min-height:auto;
       <div class="video-main">
 
         <video controls playsinline preload="metadata">
-          <source src="video">
+          <source src="video.mp4" type="video.mp4">
           Your browser does not support video playback.
         </video>
 
@@ -1531,8 +1531,34 @@ function updateCountdown(){
   ){
     return;
   }
+if (remaining <= 0) {
+    countdownFinished = true;
+
+    countdown.innerHTML =
+      '<div class="out-now">YECHI BEGOO — OUT NOW</div>';
+
+    return;
+  }
+
+  const totalSeconds = Math.floor(remaining / 1000);
+
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  daysEl.textContent = String(days).padStart(2, "0");
+  hoursEl.textContent = String(hours).padStart(2, "0");
+  minutesEl.textContent = String(minutes).padStart(2, "0");
+  secondsEl.textContent = String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
 
 
-  if(remaining <= 0){
-
-    countdown
