@@ -1039,15 +1039,15 @@ min-height:auto;
 
         <button class="track" data-track="1">
           <span class="track-no">02</span>
-          <span class="track-name">TRACK II</span>
-          <span class="track-status" data-t="comingSoon">
-            COMING SOON
-          </span>
+        <span class="track-name">MAGE MISHE</span>
+          <span class="track-status">
+    OUT NOW
+</span>
         </button>
 
         <button class="track" data-track="2">
           <span class="track-no">03</span>
-          <span class="track-name">TRACK III</span>
+        <span class="track-name">TRACK III</span>
 <span class="track-status" data-t="comingSoon">
             COMING SOON
           </span>
@@ -1149,7 +1149,31 @@ min-height:auto;
   </div>
 
 </section>
+<!-- MAGE MISHE - SECOND RELEASE -->
+<section class="release" id="mage-mishe">
+  <div class="wrap release-grid">
 
+    <div class="release-poster">
+      <img src="cover mage mishe.JPEG" alt="KAHRAN - MAGE MISHE">
+    </div>
+
+    <div>
+      <div class="eyebrow">SECOND RELEASE • OUT NOW</div>
+
+      <h2 class="release-title">
+        MAGE<br>MISHE
+      </h2>
+
+      <p>KAHRAN — ZIYADI ALBUM</p>
+
+      <audio controls preload="metadata" style="width:100%; margin-top:25px;">
+      <source src="KAHRAN_Mage_Mishe_320kbps.mp3" type="audio/mpeg">
+        Your browser does not support audio playback.
+      </audio>
+    </div>
+
+  </div>
+</section>
 
 <!-- =========================
      LISTEN
@@ -1553,7 +1577,28 @@ if (remaining <= 0) {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+/* MAGE MISHE — TRACK 02 */
 
+const mageMisheButton = document.querySelector(
+  '.track[data-track="1"]'
+);
+
+const mageMisheAudio = document.querySelector(
+  'audio source[src="KAHRAN_Mage_Mishe_320kbps.mp3"]'
+)?.parentElement;
+
+if (mageMisheButton && mageMisheAudio) {
+  mageMisheButton.addEventListener("click", function () {
+    mageMisheAudio.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+    mageMisheAudio.play().catch(function () {
+      // Playback may require the user to press Play.
+    });
+  });
+}
 </script>
 
 </body>
